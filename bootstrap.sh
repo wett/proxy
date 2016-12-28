@@ -12,13 +12,16 @@ echo ""
 DIR=${HOME}/.proxy
 
 checkos() {
-    if  cat /etc/issue | grep -q -E -i "ubuntu"; then
-        OS=Ubuntu
-    elif cat /proc/version | grep -q -E -i "ubuntu"; then
-        OS=Ubuntu
-    else
-        echo "Not supported Operatintg System."
-    fi
+  printf "checking Operate System"
+  if  cat /etc/issue | grep -q -E -i "ubuntu"; then
+    OS=ubuntu
+    printf "detected OS is Ubuntu."
+  elif cat /proc/version | grep -q -E -i "ubuntu"; then
+    OS=ubuntu
+    printf "detected OS is Ubuntu."
+  else
+    echo "Not supported Operatintg System."
+  fi
 }
 
 install_ubuntu() {
@@ -39,15 +42,17 @@ install() {
 
 run_config() {
 	echo "running shadowsocks background"
-nohup sslocal -c $DIR/shadowsocks.json  >$DIR/log/shadosocks.log 2>&1 &
+nohup sslocal -c $DIR/shadowsocks.json  >$DIR/log/shadowsocks.log 2>&1 &
 }
 
 # Main Install function
 main() {
     checkos
-    git clone https://github.com/wettk/proxy.git ~/.proxy
+    printf "git cloning https://github.com/wettk/proxy.git"
+    git clone https://github.com/wettk/proxy.git $DIR
+    print "git clone compeleted"
     install
     run_config
 }
 
-autoproxy
+main
