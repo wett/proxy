@@ -1,8 +1,9 @@
 {
-    "server" : "173.252.220.201",
-    "server_port" : 20986,
+    "server" : "104.250.147.22",
+    "server_port" : 19389,
+    "local_address" : "127.0.0.1",
     "local_port" : 1080,
     "password" : "27510011",
-    "timeout" : 600, 
+    "timeout" : 600,
     "method" : "aes-256-cfb"
 }

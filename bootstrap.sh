@@ -48,10 +48,6 @@ install() {
     fi
 }
 
-run_config() {
-	printf "running shadowsocks background"
-nohup sslocal -c $SS_CONFIG_DIR/sslink.json  >$DIR/log/shadowsocks.log 2>&1 &
-}
 
 # Main Install function
 main() {
@@ -59,7 +55,8 @@ main() {
     printf "git cloning $REPO\n"
     git clone https://github.com/wettk/proxy.git $DIR
     install
-    run_config
+    ln -s $DIR/script/ssstart.sh $HOME
+    source $DIR/script/ssstart.sh
 }
 
 main
