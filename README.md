@@ -3,10 +3,10 @@
 1. curl
 
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/wettk/proxy/master/bootstrap.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/wett/proxy/master/bootstrap.sh)"
 ```
 2. wget
 
 ```bash
-sh -c "$(wget https://raw.githubusercontent.com/wettk/proxy/master/bootstrap.sh -O -)"
+sh -c "$(wget https://raw.githubusercontent.com/wett/proxy/master/bootstrap.sh -O -)"
 ```
