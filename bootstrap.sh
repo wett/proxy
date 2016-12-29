@@ -2,6 +2,7 @@
 
 DIR=${HOME}/.proxy
 REPO=https://github.com/wett/proxy.git
+SS_CONFIG_DIR=$DIR/ss-config
 
 clear
 sudo printf "\n"
@@ -29,10 +30,16 @@ install_ubuntu() {
   sudo apt-get install -y python-pip
   pip install shadowsocks
 
-  git clone https://github.com/rofl0r/proxychains-ng.git ~/.proxy/proxychains-ng
-  cd ~/.proxy/proxychains-ng
+#  git clone https://github.com/shadowsocks/shadowsocks-libev.git $DIR/shadowsocks-libev
+#  cd $DIR/shadowsocks-libev
+#  ./configure && make
+#  sudo make install
+
+  git clone https://github.com/rofl0r/proxychains-ng.git $DIR/proxychains-ng
+  cd $DIR/proxychains-ng
   ./configure --prefix=/usr --sysconfdir=/etc
-  make && sudo make install
+  make
+  sudo make install
 }
 
 install() {
@@ -43,7 +50,7 @@ install() {
 
 run_config() {
 	printf "running shadowsocks background"
-nohup sslocal -c $DIR/shadowsocks.json  >$DIR/log/shadowsocks.log 2>&1 &
+nohup sslocal -c $SS_CONFIG_DIR/sslink.json  >$DIR/log/shadowsocks.log 2>&1 &
 }
 
 # Main Install function
