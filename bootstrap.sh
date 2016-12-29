@@ -1,15 +1,16 @@
 #!/bin/bash
 
-clear
-sudo echo ""
-echo "#############################################################"
-echo "# Install  Shadowsocks client                               #"
-echo "# Intro: https://github.com/wett/proxy.git                  #"
-echo "# Author: Wett Kok <wettkok@gmail.com>                      #"
-echo "#############################################################"
-echo ""
-
 DIR=${HOME}/.proxy
+REPO=https://github.com/wett/proxy.git
+
+clear
+sudo printf "\n"
+printf "#############################################################\n"
+printf " Install  Shadowsocks client                              \n"
+printf " Intro: $REPO                                              \n"
+printf " Author: Wett Kok <wettkok@gmail.com>                      \n"
+printf "#############################################################\n"
+printf "\n"
 
 checkos() {
   printf "checking Operate System\n"
@@ -20,7 +21,7 @@ checkos() {
     OS=ubuntu
     printf "detected OS is Ubuntu.\n"
   else
-    echo "Not supported Operatintg System.\n"
+    printf "Not supported Operatintg System.\n"
   fi
 }
 
@@ -41,16 +42,15 @@ install() {
 }
 
 run_config() {
-	echo "running shadowsocks background"
+	printf "running shadowsocks background"
 nohup sslocal -c $DIR/shadowsocks.json  >$DIR/log/shadowsocks.log 2>&1 &
 }
 
 # Main Install function
 main() {
     checkos
-    printf "git cloning https://github.com/wettk/proxy.git\n"
+    printf "git cloning $REPO\n"
     git clone https://github.com/wettk/proxy.git $DIR
-    print "git clone compeleted\n"
     install
     run_config
 }
