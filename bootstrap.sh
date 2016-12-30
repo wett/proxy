@@ -1,8 +1,8 @@
 #!/bin/bash
 
-declare DIR=${HOME}/.proxy
-declare REPO=https://github.com/wett/proxy.git
-declare SS_CONFIG_DIR=$DIR/ss-config
+DIR=${HOME}/.proxy
+REPO=https://github.com/wett/proxy.git
+SS_CONFIG_DIR=$DIR/ss-config
 
 clear
 sudo printf "\n"
