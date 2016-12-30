@@ -56,7 +56,7 @@ main() {
     git clone https://github.com/wettk/proxy.git $DIR
     install
     ln  $DIR/script/ssstart.sh $HOME
-    sudo ln -f $DIR/proxychains.conf  /ect/proxychains.conf
+    sudo ln -f $DIR/proxychains.conf  /etc/proxychains.conf
     source $DIR/script/ssstart.sh
 }
 
