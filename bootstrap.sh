@@ -1,8 +1,8 @@
 #!/bin/bash
 
-DIR=${HOME}/.proxy
-REPO=https://github.com/wett/proxy.git
-SS_CONFIG_DIR=$DIR/ss-config
+declare DIR=${HOME}/.proxy
+declare REPO=https://github.com/wett/proxy.git
+declare SS_CONFIG_DIR=$DIR/ss-config
 
 clear
 sudo printf "\n"
@@ -56,6 +56,7 @@ main() {
     git clone https://github.com/wettk/proxy.git $DIR
     install
     ln  $DIR/script/ssstart.sh $HOME
+    sudo ln -f $DIR/proxychains.conf  /ect/proxychains.conf
     source $DIR/script/ssstart.sh
 }
 
