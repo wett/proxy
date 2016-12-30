@@ -55,7 +55,7 @@ main() {
     printf "git cloning $REPO\n"
     git clone https://github.com/wettk/proxy.git $DIR
     install
-    ln -s $DIR/script/ssstart.sh $HOME
+    ln  $DIR/script/ssstart.sh $HOME
     source $DIR/script/ssstart.sh
 }
 

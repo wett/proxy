@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-printf "shadowsocks is running background\n“
+DIR=${HOME}/.proxy
+REPO=https://github.com/wett/proxy.git
+SS_CONFIG_DIR=$DIR/ss-config
+
+printf "shadowsocks is running background\n"
 
 nohup sslocal -c $SS_CONFIG_DIR/sslink.json  >$DIR/log/shadowsocks.log 2>&1 &
 
@@ -8,3 +12,5 @@ nohup sslocal -c $SS_CONFIG_DIR/sslink.json  >$DIR/log/shadowsocks.log 2>&1 &
 sleep 5s
 
 proxychains4 curl https://google.com
+
+exit 1
