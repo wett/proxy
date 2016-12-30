@@ -13,4 +13,3 @@ sleep 5s
 
 proxychains4 curl https://google.com
 
-exit 1
