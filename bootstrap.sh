@@ -57,7 +57,7 @@ main() {
     install
     ln  $DIR/script/ssstart.sh $HOME
     sudo ln -f $DIR/proxychains.conf  /etc/proxychains.conf
-    source $DIR/script/ssstart.sh
+    . $DIR/script/ssstart.sh
 }
 
 main
